@@ -1,0 +1,30 @@
+module "iam_group_restricted_admin" {
+  source  = "GenesisFunction/iam-group-restricted-admin/aws"
+  version = "1.0.2"
+  # source  = "github.com/GenesisFunction/terraform-aws-iam-group-restricted-admin"
+
+  group_name = "${var.name_prefix}-restricted-admin"
+
+  s3_bucket_paths_to_protect = [
+    module.cloudtrail.s3_bucket_arn,
+    "${module.cloudtrail.s3_bucket_arn}/*"
+  ]
+
+  input_tags = merge(local.common_tags, {})
+}
+
+module "iam_group_restricted_read_only" {
+  source  = "GenesisFunction/iam-group-restricted-read-only/aws"
+  version = "1.0.2"
+  # source  = "github.com/GenesisFunction/terraform-aws-iam-group-restricted-read-only"
+
+  group_name = "${var.name_prefix}-restricted-read-only"
+
+  s3_bucket_paths_to_allow = [
+    module.cloudtrail.s3_bucket_arn,
+    "${module.cloudtrail.s3_bucket_arn}/*"
+  ]
+
+  input_tags = merge(local.common_tags, {})
+}
+
