@@ -14,7 +14,7 @@ awsudo -u \<profile\> terraform init
 
 ### Apply:
 ```
-awsudo -u \<profile\> terraform apply -var region=us-east-1 -var name_prefix=\<prefix\> -var env_name=\<env\>
+awsudo -u \<profile\> terraform apply -var region=us-east-1 -var name_prefix=\<prefix\> -var env_name=\<env\> -var source_repo=\<repo\>
 ```
 
 ## Recommended first steps if using this as the account code
