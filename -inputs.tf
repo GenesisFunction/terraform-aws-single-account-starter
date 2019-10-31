@@ -62,6 +62,6 @@ variable "env_name" {
 }
 
 variable "repo_name" {
-  description = "name of repo which this code is being stored in"
+  description = "name of repo which holds this code"
   type        = string
 }
