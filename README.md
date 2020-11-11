@@ -40,6 +40,21 @@ awsudo -u \<profile\> aws ecs put-account-setting-default --name containerInstan
 awsudo -u \<profile\> aws ecs put-account-setting-default --name awsvpcTrunking --value enabled --region us-east-1
 awsudo -u \<profile\> aws ecs put-account-setting-default --name containerInsights --value enabled --region us-east-1
 ```
+
+## Recommended final steps
+### Change Terraform backend to S3
+
+1. Update `-state.tf` using the output values from a successful `terraform apply`. Then rename to `-state.tf`.
+2. Run `terraform init` to update Terrafrom to use S3 bucket as a backend:
+```
+awsudo -u \<profile\> terraform init
+```
+
+### Add existing IAM users to new groups
+
+1. From the AWS Management Console, open Identity and Access Management.
+2. Add all existing users who will require admin access to the new restricted-admin group. 
+
 ## Tools to Use
 
 - awsudo
