@@ -1,6 +1,6 @@
 # Single-Account-Starter
 
-This is to showcase the use of many GenesisFunction and Community modules working together to configure a single account architecture using terraform version 0.12.
+This is to showcase the use of many GenesisFunction and Community modules working together to configure a single account architecture using terraform version 0.12 or higher.
 
 ### ToDo
 - Wrap with templating language to output a custom from GUI.
