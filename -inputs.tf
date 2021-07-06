@@ -1,7 +1,7 @@
 variable "account_numbers" {
   description = "Whitelisted account numbers to apply terraform code in. Can apply in any if left blank."
-  type    = list(string)
-  default = []
+  type        = list(string)
+  default     = []
 }
 
 variable "region" {
@@ -65,3 +65,19 @@ variable "source_repo" {
   description = "name of repo which holds this code"
   type        = string
 }
+
+variable "acm_certificate_expiration_check" {
+  description = "True/False to add certificate expiration check to Config. Default is false"
+  type        = bool
+}
+
+variable "sns_notifications" {
+  description = "Used to enable SNS notifications."
+  type = bool
+  default = true
+}
+
+//variable "automation_role" {
+//  description = "The role AWS Config assumes automatically when publishing to SNS."
+//  type = string
+//}

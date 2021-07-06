@@ -20,11 +20,11 @@ output "common_tags" {
 
 output "log_bucket_ids" {
   description = "ID of logging bucket"
-  value       = [
-  module.s3_bucket_logging_us_east_1.bucket_id,
-  module.s3_bucket_logging_us_east_2.bucket_id,
-  module.s3_bucket_logging_us_west_1.bucket_id,
-  module.s3_bucket_logging_us_west_2.bucket_id
+  value = [
+    module.s3_bucket_logging_us_east_1.bucket_id,
+    module.s3_bucket_logging_us_east_2.bucket_id,
+    module.s3_bucket_logging_us_west_1.bucket_id,
+    module.s3_bucket_logging_us_west_2.bucket_id
   ]
 }
 
@@ -58,3 +58,6 @@ output "iam_role_url_restricted_read_only" {
   value       = module.iam_group_restricted_read_only.iam_role_assumption_url
 }
 
+output "test" {
+  value = var.account_numbers[0]
+}
