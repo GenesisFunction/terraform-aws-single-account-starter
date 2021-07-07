@@ -77,6 +77,7 @@ variable "sns_notifications" {
   default = true
 }
 
+
 //variable "automation_role" {
 //  description = "The role AWS Config assumes automatically when publishing to SNS."
 //  type = string

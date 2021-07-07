@@ -20,6 +20,8 @@ module "aws_config_rules_us_east_1" {
     aws = aws.us-east-1
   }
     topic_arn = aws_sns_topic.infrastructure_alerts.arn
+    automation_role = aws_iam_role.automation_role.id
+    message = "Your ACM certificates are expiring soon!"
 }
 
 
