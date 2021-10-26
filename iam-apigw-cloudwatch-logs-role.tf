@@ -3,20 +3,20 @@ resource "aws_api_gateway_account" "apigw_logging_us_east_1" {
   provider            = aws.us-east-1
 }
 
-resource "aws_api_gateway_account" "apigw_logging_us_east_2" {
-  cloudwatch_role_arn = aws_iam_role.apigw_logging.arn
-  provider            = aws.us-east-2
-}
-
-resource "aws_api_gateway_account" "apigw_logging_us_west_1" {
-  cloudwatch_role_arn = aws_iam_role.apigw_logging.arn
-  provider            = aws.us-west-1
-}
-
-resource "aws_api_gateway_account" "apigw_logging_us_west_2" {
-  cloudwatch_role_arn = aws_iam_role.apigw_logging.arn
-  provider            = aws.us-west-2
-}
+//resource "aws_api_gateway_account" "apigw_logging_us_east_2" {
+//  cloudwatch_role_arn = aws_iam_role.apigw_logging.arn
+//  provider            = aws.us-east-2
+//}
+//
+//resource "aws_api_gateway_account" "apigw_logging_us_west_1" {
+//  cloudwatch_role_arn = aws_iam_role.apigw_logging.arn
+//  provider            = aws.us-west-1
+//}
+//
+//resource "aws_api_gateway_account" "apigw_logging_us_west_2" {
+//  cloudwatch_role_arn = aws_iam_role.apigw_logging.arn
+//  provider            = aws.us-west-2
+//}
 
 resource "aws_iam_role" "apigw_logging" {
   name               = "${var.name_prefix}-apigw-cloudwatch-logging-role${local.name_suffix}"

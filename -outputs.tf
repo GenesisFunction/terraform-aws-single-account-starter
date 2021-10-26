@@ -1,7 +1,7 @@
-output "account_id" {
-  description = "Account which terraform was run on"
-  value       = data.aws_caller_identity.current.account_id
-}
+//output "account_id" {
+//  description = "Account which terraform was run on"
+//  value       = data.aws_caller_identity.current.account_id
+//}
 
 output "name_prefix" {
   description = "string to prepend to all resource names"
@@ -22,9 +22,9 @@ output "log_bucket_ids" {
   description = "ID of logging bucket"
   value       = [
   module.s3_bucket_logging_us_east_1.bucket_id,
-  module.s3_bucket_logging_us_east_2.bucket_id,
-  module.s3_bucket_logging_us_west_1.bucket_id,
-  module.s3_bucket_logging_us_west_2.bucket_id
+//  module.s3_bucket_logging_us_east_2.bucket_id,
+//  module.s3_bucket_logging_us_west_1.bucket_id,
+//  module.s3_bucket_logging_us_west_2.bucket_id
   ]
 }
 

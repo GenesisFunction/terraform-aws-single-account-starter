@@ -1,36 +1,12 @@
-variable "account_numbers" {
-  description = "Whitelisted account numbers to apply terraform code in. Can apply in any if left blank."
-  type    = list(string)
-  default = []
-}
+//variable "account_numbers" {
+//  description = "Whitelisted account numbers to apply terraform code in. Can apply in any if left blank."
+//  type    = list(string)
+//  default = []
+//}
 
 variable "region" {
   description = "AWS Region to target"
   type        = string
-}
-
-variable "access_key" {
-  description = "AWS access key"
-  type        = string
-  default     = ""
-}
-
-variable "secret_key" {
-  description = "AWS secret key"
-  type        = string
-  default     = ""
-}
-
-variable "token" {
-  description = "MFA Token retrieved with sts get-session-token"
-  type        = string
-  default     = ""
-}
-
-variable "aws_profile" {
-  description = "AWS Profile credentials to use"
-  type        = string
-  default     = ""
 }
 
 variable "name_prefix" {
@@ -65,3 +41,4 @@ variable "source_repo" {
   description = "name of repo which holds this code"
   type        = string
 }
+
