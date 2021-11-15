@@ -7,6 +7,7 @@ module "aws_config_rules_us_east_1" {
   required_tags = {
     tag1Key   = "AWS_Backup" # Yes, the actual required format is tag#Key and the required key
     tag1Value = true
+    tag2Key   = "Environment"
   }
 
   # tag1Key   = "Provisioner"

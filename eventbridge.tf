@@ -1,4 +1,4 @@
-resource "aws_cloudwatch_event_rule" "aws_backup" {
+resource "aws_cloudwatch_event_rule" "required_tags" {
   event_bus_name = "default"
   event_pattern = jsonencode(
     {
