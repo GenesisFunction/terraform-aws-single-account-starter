@@ -5,7 +5,9 @@ module "aws_config_rules_us_east_1" {
   source_recorder               = module.aws_config_recorder_us_east_1.aws_config_configuration_recorder_id
   required_tags_enabled         = true
   required_tags = {
-    tag1Key = "Environment" # Yes, the actual required format is tag#Key and the required key
+    tag1Key   = "AWS_Backup" # Yes, the actual required format is tag#Key and the required key
+    tag1Value = true
+    tag2Key   = "Environment"
   }
 
   # tag1Key   = "Provisioner"

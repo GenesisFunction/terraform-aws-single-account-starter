@@ -27,4 +27,3 @@ provider "aws" {
 //  region              = "us-west-2"
 //  allowed_account_ids = var.account_numbers
 //}
-
