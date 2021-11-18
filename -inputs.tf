@@ -42,6 +42,7 @@ variable "source_repo" {
   type        = string
 }
 
+
 variable "monthly_billing_threshold" {
   description = "The maximum amount that can be billed after which a cloudwatch alarm triggers"
   default = "10000"
@@ -51,3 +52,4 @@ variable "currency" {
   description = "This defines the currency in the monthly_billing_threshold"
   default = "USD"
 }
+
