@@ -1,6 +1,6 @@
 provider "aws" {
- // allowed_account_ids = var.account_numbers
-  region              = var.region
+  // allowed_account_ids = var.account_numbers
+  region = var.region
 }
 
 #Extra Providers for Config and other Multi-Region configurations like AWS Config
