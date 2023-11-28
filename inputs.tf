@@ -1,8 +1,8 @@
-//variable "account_numbers" {
-//  description = "Whitelisted account numbers to apply terraform code in. Can apply in any if left blank."
-//  type    = list(string)
-//  default = []
-//}
+# variable "account_numbers" {
+#   description = "Whitelisted account numbers to apply terraform code in. Can apply in any if left blank."
+#   type    = list(string)
+#   default = []
+# }
 
 variable "region" {
   description = "AWS Region to target"
@@ -45,11 +45,12 @@ variable "source_repo" {
 
 variable "monthly_billing_threshold" {
   description = "The maximum amount that can be billed after which a cloudwatch alarm triggers"
-  default = "10000"
+  type        = string
+  default     = "10000"
 }
 
 variable "currency" {
   description = "This defines the currency in the monthly_billing_threshold"
-  default = "USD"
+  type        = string
+  default     = "USD"
 }
-
