@@ -1,6 +1,6 @@
 module "iam_group_restricted_admin" {
   source  = "StratusGrid/iam-group-restricted-admin/aws"
-  version = "1.0.2"
+  version = "1.2.2"
   # source  = "github.com/StratusGrid/terraform-aws-iam-group-restricted-admin"
 
   group_name = "${var.name_prefix}-restricted-admin"
@@ -15,7 +15,7 @@ module "iam_group_restricted_admin" {
 
 module "iam_group_restricted_read_only" {
   source  = "StratusGrid/iam-group-restricted-read-only/aws"
-  version = "1.0.4"
+  version = "1.1.1"
   # source  = "github.com/StratusGrid/terraform-aws-iam-group-restricted-read-only"
 
   group_name = "${var.name_prefix}-restricted-read-only"

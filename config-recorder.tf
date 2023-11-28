@@ -1,6 +1,6 @@
 module "aws_config_recorder_us_east_1" {
   source                        = "StratusGrid/config-recorder/aws"
-  version                       = "1.0.2"
+  version                       = "1.2.1"
   log_bucket_id                 = module.s3_bucket_logging_us_east_1.bucket_id
   include_global_resource_types = true #only include global resource on one region to prevent duplicate recording of events
   providers = {

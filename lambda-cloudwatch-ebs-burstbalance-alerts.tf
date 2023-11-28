@@ -1,6 +1,6 @@
 module "ebs_burst_balance_lambda" {
   source  = "StratusGrid/lambda-event-handler-ebs-burstbalance/aws"
-  version = "2.0.0"
+  version = "2.2.0"
   # source  = "github.com/StratusGrid/terraform-aws-lambda-event-handler-ebs-burstbalance"
 
   name_prefix      = var.name_prefix
