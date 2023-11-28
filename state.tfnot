@@ -1,12 +1,10 @@
+# This is used to store the Terraform state file (the file with all the Terraform configuration) in an S3 bucket in AWS.
+
 terraform {
   backend "s3" {
-    acl            = "bucket-owner-full-control"
-    encrypt        = true
-    key            = ""
-    region         = ""
-    bucket         = ""
-    dynamodb_table = ""
-    kms_key_id     = ""
+    acl     = "bucket-owner-full-control"
+    encrypt = true
+    region  = "us-east-1"
   }
 }
 
