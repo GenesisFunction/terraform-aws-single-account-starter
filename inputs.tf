@@ -1,8 +1,10 @@
-# variable "account_numbers" {
-#   description = "Whitelisted account numbers to apply terraform code in. Can apply in any if left blank."
-#   type    = list(string)
-#   default = []
-# }
+/*
+variable "account_numbers" {
+  description = "Whitelisted account numbers to apply terraform code in. Can apply in any if left blank."
+  type    = list(string)
+  default = []
+}
+*/
 
 variable "region" {
   description = "AWS Region to target"

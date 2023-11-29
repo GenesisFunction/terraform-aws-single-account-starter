@@ -29,6 +29,7 @@ module "aws_config_recorder_us_east_2" {
   }
 }
 */
+
 /*
 module "aws_config_recorder_us_west_1" {
   source        = "StratusGrid/config-recorder/aws"
@@ -39,6 +40,7 @@ module "aws_config_recorder_us_west_1" {
   }
 }
 */
+
 /*
 module "aws_config_recorder_us_west_2" {
   source        = "StratusGrid/config-recorder/aws"
