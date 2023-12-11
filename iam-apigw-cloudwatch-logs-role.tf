@@ -42,11 +42,11 @@ EOF
   )
 }
 
-data "aws_iam_policy" "Amazon_APIGateway_PushToCloudWatchLogs" {
+data "aws_iam_policy" "Amazon_API_Gateway_Push_To_Cloud_Watch_Logs" {
   arn = "arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
 }
 
 resource "aws_iam_role_policy_attachment" "apigw_logging" {
   role       = aws_iam_role.apigw_logging.id
-  policy_arn = data.aws_iam_policy.Amazon_APIGateway_PushToCloudWatchLogs.arn
+  policy_arn = data.aws_iam_policy.Amazon_API_Gateway_Push_To_Cloud_Watch_Logs.arn
 }
