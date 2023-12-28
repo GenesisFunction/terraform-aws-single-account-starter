@@ -1,6 +1,6 @@
 module "s3_bucket_logging_us_east_1" {
   source      = "StratusGrid/s3-bucket-logging/aws"
-  version     = "2.1.1"
+  version     = "~> 2.1"
   name_prefix = var.name_prefix
   name_suffix = "${local.name_suffix}-us-east-1"
   input_tags  = merge(local.common_tags, {})
