@@ -23,7 +23,6 @@ resource "aws_cloudwatch_event_rule" "required_tags" {
       ]
     }
   )
-  is_enabled = true
   name       = "${var.name_prefix}-backup-notifications${local.name_suffix}"
 }
 
