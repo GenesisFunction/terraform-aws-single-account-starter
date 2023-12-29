@@ -23,7 +23,7 @@ resource "aws_cloudwatch_event_rule" "required_tags" {
       ]
     }
   )
-  name       = "${var.name_prefix}-backup-notifications${local.name_suffix}"
+  name = "${var.name_prefix}-backup-notifications${local.name_suffix}"
 }
 
 resource "aws_cloudwatch_event_target" "aws_backup_to_sns" {
