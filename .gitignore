@@ -19,5 +19,3 @@
 .pre-commit-config.yaml
 .prettierignore
 
-# Terraform lock
-.terraform.lock.hcl

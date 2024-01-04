@@ -73,6 +73,17 @@ folders.
 
 ---
 
+## GitHub actions pre-commit workflow
+
+Use the following command to pre-populate hashes for Linux and avoid error messages in the terraform_validate step of GitHub actions pre-commit workflow.
+
+```bash
+terraform providers lock -platform=linux_amd64
+```
+
+Execute the command in folders that contain the file .terraform.lock.hcl such as the root folder and modules folders.
+
+
 ## Requirements
 
 | Name | Version |
