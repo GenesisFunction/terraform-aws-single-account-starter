@@ -8,5 +8,3 @@
     <a href="https://stratusgrid.com/blog">Blog</a>
   </p>
 </p>
----
-
