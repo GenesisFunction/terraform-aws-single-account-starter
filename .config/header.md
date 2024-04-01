@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/trevorstr/sg-header/blob/main/stratusgrid-logo-smaller.jpg?raw=true" />
+  <img src="https://github.com/StratusGrid/terraform-readme-template/blob/main/header/stratusgrid-logo-smaller.jpg?raw=true" />
   
   <p align="center">    
     <a href="https://stratusgrid.com/book-a-consultation">Contact Us</a> | 
