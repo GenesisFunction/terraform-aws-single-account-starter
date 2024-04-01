@@ -1,0 +1,3 @@
+[submodule ".config/terraform-readme-template"]
+	path = .config/terraform-readme-template
+	url = git@github.com:StratusGrid/terraform-readme-template.git
