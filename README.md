@@ -8,7 +8,7 @@
     <a href="https://stratusgrid.com/blog">Blog</a>
   </p>
 </p>
----
+
 # terraform-aws-single-account-starter
 
 GitHub: [StratusGrid/terraform-aws-single-account-starter](https://github.com/StratusGrid/terraform-aws-single-account-starter)
