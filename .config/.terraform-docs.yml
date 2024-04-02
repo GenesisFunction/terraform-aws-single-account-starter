@@ -1,3 +1,5 @@
+header-from: ./.config/header.md
+
 version: ""
 
 formatter: markdown table
@@ -5,6 +7,8 @@ formatter: markdown table
 name: Single-Account-Starter
 
 content: |-
+ {{ .Header }}
+
   # terraform-aws-single-account-starter
 
   GitHub: [StratusGrid/terraform-aws-single-account-starter](https://github.com/StratusGrid/terraform-aws-single-account-starter)
@@ -104,6 +108,7 @@ content: |-
 
 sections:
   show:
+    - header
     - requirements
     - resources
     - inputs
