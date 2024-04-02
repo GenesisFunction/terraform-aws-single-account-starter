@@ -1,90 +1,100 @@
 <!-- BEGIN_TF_DOCS -->
-# terraform-aws-single-account-starter
+<p align="center">
+  <img src="https://github.com/StratusGrid/terraform-readme-template/blob/main/header/stratusgrid-logo-smaller.jpg?raw=true" />
+  <p align="center">    
+    <a href="https://stratusgrid.com/book-a-consultation">Contact Us</a> |
+    <a href="https://stratusgrid.com/cloud-cost-optimization-dashboard">Stratusphere FinOps</a> |
+    <a href="https://stratusgrid.com">StratusGrid Home</a> |
+    <a href="https://stratusgrid.com/blog">Blog</a>
+  </p>
+</p>
 
-GitHub: [StratusGrid/terraform-aws-single-account-starter](https://github.com/StratusGrid/terraform-aws-single-account-starter)
+ # terraform-aws-single-account-starter
 
-### Template Documentation
+ GitHub: [StratusGrid/terraform-aws-single-account-starter](https://github.com/StratusGrid/terraform-aws-single-account-starter)
 
-This is to showcase the use of many StratusGrid and Community modules working together to configure a single account architecture using terraform version 1.x or higher.
+ ### Template Documentation
 
-### ToDo
-- Wrap with templating language to output a custom from GUI.
--- Primary Region and which Regions to add
--- Whether to do vm import role and bucket
+ This is to showcase the use of many StratusGrid and Community modules working together to configure a single account architecture using terraform version 1.x or higher.
 
-### Init:
-```
-awsudo -u \<profile\> terraform init
-```
+ ### ToDo
+ - Wrap with templating language to output a custom from GUI.
+ -- Primary Region and which Regions to add
+ -- Whether to do vm import role and bucket
 
-### Apply:
-```
-awsudo -u \<profile\> terraform apply -var region=us-east-1 -var name_prefix=\<prefix\> -var env_name=\<env\> -var source_repo=\<repo\>
-```
+ ### Init:
+ ```
+ awsudo -u \<profile\> terraform init
+ ```
 
-## Recommended first steps if using this as the account code
+ ### Apply:
+ ```
+ awsudo -u \<profile\> terraform apply -var region=us-east-1 -var name_prefix=\<prefix\> -var env_name=\<env\> -var source_repo=\<repo\>
+ ```
 
-- Enable IAM Billing access while logged in as root under My Account
-- Delete the default VPCs in all regions you will be using (at least all regions with config rules...)
-- Tag the default RDS DB Security Groups in all regions with your required tags (cli to do so is below)
+ ## Recommended first steps if using this as the account code
 
-```
-awsudo -u \<profile\> aws rds add-tags-to-resource --resource-name "arn:aws:rds:us-east-1:<account_number>:secgrp:default" --tags Key=Environment,Value=prd,Key=Customer,Value=Shared --region us-east-1
+ - Enable IAM Billing access while logged in as root under My Account
+ - Delete the default VPCs in all regions you will be using (at least all regions with config rules...)
+ - Tag the default RDS DB Security Groups in all regions with your required tags (cli to do so is below)
 
-awsudo -u \<profile\> aws rds add-tags-to-resource --resource-name "arn:aws:rds:us-east-2:<account_number>:secgrp:default" --tags Key=Environment,Value=prd,Key=Customer,Value=Shared --region us-east-2
+ ```
+ awsudo -u \<profile\> aws rds add-tags-to-resource --resource-name "arn:aws:rds:us-east-1:<account_number>:secgrp:default" --tags Key=Environment,Value=prd,Key=Customer,Value=Shared --region us-east-1
 
-awsudo -u \<profile\> aws rds add-tags-to-resource --resource-name "arn:aws:rds:us-west-1:<account_number>:secgrp:default" --tags Key=Environment,Value=prd,Key=Customer,Value=Shared --region us-west-1
+ awsudo -u \<profile\> aws rds add-tags-to-resource --resource-name "arn:aws:rds:us-east-2:<account_number>:secgrp:default" --tags Key=Environment,Value=prd,Key=Customer,Value=Shared --region us-east-2
 
-awsudo -u \<profile\> aws rds add-tags-to-resource --resource-name "arn:aws:rds:us-west-2:<account_number>:secgrp:default" --tags Key=Environment,Value=prd,Key=Customer,Value=Shared --region us-west-2
-```
-- Enable updated account features for ECS
-```
-awsudo -u \<profile\> aws ecs put-account-setting-default --name serviceLongArnFormat --value enabled --region us-east-1
-awsudo -u \<profile\> aws ecs put-account-setting-default --name taskLongArnFormat --value enabled --region us-east-1
-awsudo -u \<profile\> aws ecs put-account-setting-default --name containerInstanceLongArnFormat --value enabled --region us-east-1
-awsudo -u \<profile\> aws ecs put-account-setting-default --name awsvpcTrunking --value enabled --region us-east-1
-awsudo -u \<profile\> aws ecs put-account-setting-default --name containerInsights --value enabled --region us-east-1
-```
+ awsudo -u \<profile\> aws rds add-tags-to-resource --resource-name "arn:aws:rds:us-west-1:<account_number>:secgrp:default" --tags Key=Environment,Value=prd,Key=Customer,Value=Shared --region us-west-1
 
-## Recommended final steps
-### Change Terraform backend to S3
+ awsudo -u \<profile\> aws rds add-tags-to-resource --resource-name "arn:aws:rds:us-west-2:<account_number>:secgrp:default" --tags Key=Environment,Value=prd,Key=Customer,Value=Shared --region us-west-2
+ ```
+ - Enable updated account features for ECS
+ ```
+ awsudo -u \<profile\> aws ecs put-account-setting-default --name serviceLongArnFormat --value enabled --region us-east-1
+ awsudo -u \<profile\> aws ecs put-account-setting-default --name taskLongArnFormat --value enabled --region us-east-1
+ awsudo -u \<profile\> aws ecs put-account-setting-default --name containerInstanceLongArnFormat --value enabled --region us-east-1
+ awsudo -u \<profile\> aws ecs put-account-setting-default --name awsvpcTrunking --value enabled --region us-east-1
+ awsudo -u \<profile\> aws ecs put-account-setting-default --name containerInsights --value enabled --region us-east-1
+ ```
 
-1. Update `state.tf` using the output values from a successful `terraform apply`. Then rename to `state.tf`.
-2. Run `terraform init` to update Terrafrom to use S3 bucket as a backend:
-```
-awsudo -u \<profile\> terraform init
-```
+ ## Recommended final steps
+ ### Change Terraform backend to S3
 
-### Add existing IAM users to new groups
+ 1. Update `state.tf` using the output values from a successful `terraform apply`. Then rename to `state.tf`.
+ 2. Run `terraform init` to update Terrafrom to use S3 bucket as a backend:
+ ```
+ awsudo -u \<profile\> terraform init
+ ```
 
-1. From the AWS Management Console, open Identity and Access Management.
-2. Add all existing users who will require admin access to the new restricted-admin group.
+ ### Add existing IAM users to new groups
 
-## Tools to Use
+ 1. From the AWS Management Console, open Identity and Access Management.
+ 2. Add all existing users who will require admin access to the new restricted-admin group. 
 
-- awsudo
-- tfenv (if using multiple versions of terraform)
+ ## Tools to Use
 
----
+ - awsudo
+ - tfenv (if using multiple versions of terraform)
 
-Note: Before reading, uncomment the code for the environment that you
-wish to apply the code to. This goes for both the init-tfvars and apply-tfvars
-folders.
+ ---
 
----
+ Note: Before reading, uncomment the code for the environment that you
+ wish to apply the code to. This goes for both the init-tfvars and apply-tfvars
+ folders.
+ 
+ ---
 
-## GitHub actions pre-commit workflow
+ ## GitHub actions pre-commit workflow
 
-Use the following command to pre-populate hashes for Linux and avoid error messages in the terraform_validate step of GitHub actions pre-commit workflow.
+ Use the following command to pre-populate hashes for Linux and avoid error messages in the terraform_validate step of GitHub actions pre-commit workflow.
 
-```bash
-terraform providers lock -platform=linux_amd64
-```
+ ```bash
+ terraform providers lock -platform=linux_amd64
+ ```
 
-Execute the command in folders that contain the file .terraform.lock.hcl such as the root folder and modules folders.
+ Execute the command in folders that contain the file .terraform.lock.hcl such as the root folder and modules folders.
 
 
-## Requirements
+ ## Requirements
 
 | Name | Version |
 |------|---------|
@@ -92,7 +102,7 @@ Execute the command in folders that contain the file .terraform.lock.hcl such as
 | <a name="requirement_archive"></a> [archive](#requirement\_archive) | >= 2.2 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.63 |
 
-## Resources
+ ## Resources
 
 | Name | Type |
 |------|------|
@@ -106,7 +116,7 @@ Execute the command in folders that contain the file .terraform.lock.hcl such as
 | [aws_kms_key.sns_topics](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_key) | resource |
 | [aws_sns_topic.infrastructure_alerts](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic) | resource |
 
-## Inputs
+ ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -120,7 +130,7 @@ Execute the command in folders that contain the file .terraform.lock.hcl such as
 | <a name="input_region"></a> [region](#input\_region) | AWS Region to target | `string` | n/a | yes |
 | <a name="input_source_repo"></a> [source\_repo](#input\_source\_repo) | name of repo which holds this code | `string` | n/a | yes |
 
-## Outputs
+ ## Outputs
 
 | Name | Description |
 |------|-------------|
@@ -135,7 +145,7 @@ Execute the command in folders that contain the file .terraform.lock.hcl such as
 | <a name="output_terraform_state_dynamodb_table"></a> [terraform\_state\_dynamodb\_table](#output\_terraform\_state\_dynamodb\_table) | dynamodb table to control terraform locking |
 | <a name="output_terraform_state_kms_key_arn"></a> [terraform\_state\_kms\_key\_arn](#output\_terraform\_state\_kms\_key\_arn) | kms key to use for encrytption when storing/reading terraform state configuration |
 
----
+ ---
 
-Note, manual changes to the README will be overwritten when the documentation is updated. To update the documentation, run `terraform-docs -c .config/.terraform-docs.yml`
+ Note, manual changes to the README will be overwritten when the documentation is updated. To update the documentation, run `terraform-docs -c .config/.terraform-docs.yml`
 <!-- END_TF_DOCS -->
